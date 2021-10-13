@@ -1,0 +1,45 @@
+body{background-color: beige;}
+#weather-dash{
+    text-align: center;
+    background-color: grey;
+}
+#search-container{
+    width: 200px;
+    border-bottom: 2px solid black;
+}
+#search-container>*{
+ text-align: center;   
+}
+textarea{
+  width: 200px;
+}
+#searchbtn, textarea{
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-top: 10px;
+}
+.city{
+    border: 2px solid grey;
+    text-align: center;
+    width: fit-content;
+}
+#forecast-container{
+display: flex;
+justify-content: center;
+margin-top: -350px;
+border: 2px solid black;
+}
+#five-day{
+    margin-top: 300px;
+    display: flex;
+    justify-content: flex-end;
+    justify-content: space-between;
+
+}
+.day{
+    text-align: center;
+}

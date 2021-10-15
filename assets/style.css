@@ -66,27 +66,21 @@ height: 200px
     display: flex;
     justify-content: flex-end;
     justify-content: space-between;
-    transform: translateX(50px);
+    transform: translate(40px);
 }
 .day{
     text-align: center;
     border: 2px solid black;
     margin: auto;
-    margin-bottom: 60px;
     padding: 20px;
+    width: 75px;
+    height: 100px;
+     background-color: #191970;
+     color: white;
     }
  #five-forecast{
    position: relative;
    left: 25%;
  transform: translateY(-90%);
  }
-#five-day{
-    margin-top: 300px;
-    display: flex;
-    justify-content: flex-end;
-    justify-content: space-between;
-
-}
-.day{
-    text-align: center;
-}
+    

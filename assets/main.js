@@ -15,6 +15,9 @@ var dayForecast2 = document.getElementById("day2");
 var dayForecast3 = document.getElementById("day3");
 var dayForecast4 = document.getElementById("day4");
 var dayForecast5 = document.getElementById("day5");
+var currentDate = moment().format('DD/MM/YYYY');
+var city5 = document.getElementById("button5")
+var cityButton = document.getElementsByClassName('city')
 
 function getApi() {
   var searchCity = searchBar.value;
@@ -29,11 +32,22 @@ function getApi() {
     })
     .then(function (data) {
       console.log(data);
-      dailyForecast.textContent = data.name;
+
+      dailyForecast.textContent = data.name + " " + currentDate;
       temp.textContent = "temp: " + data.main.temp;
       humidity.textContent = "humidity: " + data.main.humidity + "%";
       wind.textContent = "wind: " + data.wind.speed + "mph";
-      uv.textContent = "UV: " + data.main.uv;
+      $.ajax({
+        url:
+          "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+          data.coord.lat +
+          "&lon=" +
+          data.coord.lon +
+          "&exclude=hourly,daily&appid=ba788355db8949934833ccadef931046",
+        method: "GET",
+      }).then(function (response) {
+        uv.textContent = "UVI: " + response.current.uvi;
+      });
     });
   savedCities.push(searchCity);
   localStorage.setItem("cities", JSON.stringify(savedCities));
@@ -43,8 +57,8 @@ searchBtn.addEventListener("click", getApi);
 function displayCity() {
   for (var i = 0; i < savedCities.length; i++) {
     cityList[i].textContent = savedCities[i];
-    if (savedCities > 5) {
-      cityList.textContent = savedCities[i];
+    if (savedCities > 4) {
+      city5.textContent = savedCities[i];
     }
   }
 }
@@ -221,7 +235,7 @@ function getApiForecast5() {
       console.log(data);
       console.log(data.list[0].weather[0]);
       dayForecast5.textContent = data.list[37].dt_txt;
-      
+
       var day1Temp = document.createElement("p");
       var day1Humidity = document.createElement("p");
       var day1Wind = document.createElement("p");
@@ -246,19 +260,3 @@ function getApiForecast5() {
 
 searchBtn.addEventListener("click", getApiForecast5);
 
-function getUV(){
-     getApi();
-
-    var requestUrl2 =
-      "https://api.openweathermap.org/data/2.5/forecast?q=" +
-      searchCity +
-      "&units=imperial&appid=ba788355db8949934833ccadef931046";
-  
-    fetch(requestUrl2)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-      });
-    }

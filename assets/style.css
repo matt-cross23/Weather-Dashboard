@@ -40,11 +40,13 @@ textarea{
 }
 
 .city{
+    display: flex;
+    flex-direction: column;
     border: 2px solid black;
     border-radius: 5px;
     text-align: center;
     width: 185px;
-    padding: 5px;
+    padding: 15px;
     position: relative;
 
     background-color: #c0c0c0;
@@ -68,19 +70,19 @@ height: 200px
     justify-content: space-between;
     transform: translate(40px);
 }
-.day{
+#five-forecast ~ ul{
     text-align: center;
     border: 2px solid black;
     margin: auto;
     padding: 20px;
-    width: 75px;
-    height: 100px;
+    width: 125px;
+    height: 250px;
      background-color: #191970;
      color: white;
     }
  #five-forecast{
    position: relative;
-   left: 25%;
- transform: translateY(-90%);
+   left: 15%;
+ transform: translateY(-35%);
  }
     
